@@ -4,6 +4,8 @@ ruby '2.0.0'
 
 
 gem 'rails', '4.0.8'
+gem 'bootstrap-sass', '2.3.2.0'
+gem 'sprockets', '2.11.0'
 
 group :development, :test do
   gem 'sqlite3', '1.3.8'
@@ -17,7 +19,7 @@ end
 group :test do
   gem 'growl', '1.0.3'
   gem 'selenium-webdriver', '2.35.1'
-  gem 'capybara', '2.1.0'
+  gem 'capybara', '2.2.0'
   gem 'minitest-reporters'
   gem 'mini_backtrace'
   gem 'guard'

@@ -48,8 +48,13 @@ Spork.prefork do
     #     --seed 1234
     config.order = "random"
     config.include Capybara::DSL
+
+
+    # IF I PUT THIS CODE THEN I CAN USE root_path AND about_path AND contact_path etcss
+    config.include Rails.application.routes.url_helpers
   end
 end
+
 
 Spork.each_run do
   # This code will be run each time you run your specs.
