@@ -1,5 +1,5 @@
 SampleApp::Application.routes.draw do
-  get "users/new"
+  #get "users/new" This line got removed during chapter 7
   #get "static_pages/home"
   root  'static_pages#home'
   #get "static_pages/help"
@@ -9,6 +9,7 @@ SampleApp::Application.routes.draw do
   #get "static_pages/contact"
   match '/contact', to: 'static_pages#contact', via: 'get'
   match '/signup', to: 'users#new', via: 'get'
+  resources :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
