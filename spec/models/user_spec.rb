@@ -113,4 +113,11 @@ describe User do
       expect(@user.reload.email).to eq mixed_case_email.downcase
     end
   end
+
+  it {should respond_to(:remember_token)}
+
+  describe "remember token" do
+    before {@user.save}
+    its(:remember_token) {should_not be_blank}
+  end
 end

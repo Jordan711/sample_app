@@ -12,6 +12,7 @@ gem 'rake', '< 11.0'
 group :development, :test do
   gem 'sqlite3', '1.3.8'
   gem 'rspec-rails', '3.3.2'
+  gem 'rspec-its'
   gem 'guard-rspec', '4.6.0'
   gem 'spork-rails', '4.0.0'
   gem 'guard-spork', '1.5.0'
@@ -27,6 +28,8 @@ group :test do
   gem 'guard'
   gem 'guard-minitest'
   gem 'factory_girl_rails', '4.2.0'
+  gem 'cucumber-rails', '1.4.0', :require => false
+  gem 'database_cleaner', github: 'bmabey/database_cleaner'
 end
 
 gem 'sass-rails', '4.0.3'

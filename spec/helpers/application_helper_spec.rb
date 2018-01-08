@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe yeet do
+describe "application helper" do
   describe "full_title" do
     it "should include the page title" do
       expect(full_title("foo")).to match(/foo/)
