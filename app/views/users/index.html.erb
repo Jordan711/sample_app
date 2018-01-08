@@ -1,0 +1,25 @@
+<% provide(:title, 'All users') %>
+<h1>All users</h1>
+
+<%= will_paginate %>
+
+<ul class="users">
+  <%= render @users %>
+</ul>
+
+<%= will_paginate %>
+
+<!-- SILLY BUG KEEP IN MIND 
+<% provide(:title, 'All users') %>
+<h1>All users</h1>
+
+<%= will_paginate %>
+
+<ul class="users">
+  <% @users.each do |user| %>
+    <%= render @users %>
+  <% end %>
+</ul>
+
+<%= will_paginate %>
+-->
