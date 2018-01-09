@@ -39,6 +39,7 @@ describe "User Pages -- " do
       visit users_path
     end
 
+
     it {should have_title('All users')}
     it {should have_content('All users')}
 
@@ -71,16 +72,27 @@ describe "User Pages -- " do
 
   describe "Profile page" do
     let(:user) {FactoryGirl.create(:user, name:"Billy bob", email:"g@gggg.g")}
+    let!(:m1) {FactoryGirl.create(:micropost, user: user, content: "foo")}
+    let!(:m2) {FactoryGirl.create(:micropost, user: user, content: "bar")}
+
     before {visit user_path(user)}
 
     it {should have_content(user.name)}
     it {should have_title(user.name)}
+
+    describe "microposts" do
+      it {should have_content(m1.content)}
+      it {should have_content(m2.content)}
+      it {should have_content(user.microposts.count)}
+    end
   end
 
   describe "signup page" do
     before {visit signup_path}
     it {should have_selector('h1, ''Sign up')}
     it {should have_title(full_title('Sign up'))}
+    it {should_not have_link('Profile')}
+    it {should_not have_link('Settings')}
   end
 
   describe "signup" do
@@ -134,6 +146,8 @@ describe "User Pages -- " do
 
       it {should have_title('Sign up')}
       it {should have_content('error')}
+      it {should_not have_link('Profile')}
+      it {should_not have_link('Settings')}
     end
 
     describe "empty email" do
@@ -146,6 +160,8 @@ describe "User Pages -- " do
 
       it {should have_title('Sign up')}
       it {should have_content('error')}
+      it {should_not have_link('Profile')}
+      it {should_not have_link('Settings')}
     end
 
     describe "empty password" do
@@ -159,6 +175,8 @@ describe "User Pages -- " do
 
       it {should have_title('Sign up')}
       it {should have_content('error')}
+      it {should_not have_link('Profile')}
+      it {should_not have_link('Settings')}
     end
 
     describe "non matching passwords" do
@@ -172,6 +190,8 @@ describe "User Pages -- " do
 
       it {should have_title('Sign up')}
       it {should have_content('error')}
+      it {should_not have_link('Profile')}
+      it {should_not have_link('Settings')}
     end
   end
 

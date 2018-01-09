@@ -12,9 +12,19 @@
     <section>
       <h1>
         <%= gravatar_for @user %>
-        Name: <%= @user.name %>
-        | Email: <%= @user.email %>
+        <%= @user.name %>
+        <!--| Email: <%= @user.email %>-->
       </h1>
     </section>
   </aside>
+
+  <div class="span8">
+    <% if @user.microposts.any? %>
+      <h3>Micro[[[B]]]osts Count Score: <%= @user.microposts.count %></h3>
+      <ol class="microposts">
+        <%= render @microposts %>
+      </ol>
+      <%= will_paginate @microposts %>
+    <% end %>
+  </div>
 </div>
